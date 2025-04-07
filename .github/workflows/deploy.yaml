@@ -6,7 +6,7 @@ on:
       - deploy
 
 jobs:
-  "set up sample data":
+  "set-up-sample-data":
     runs-on: self-hosted
     steps:
       - name: Checkout Repository
