@@ -1,14 +1,9 @@
-name: Setup Sample Data
+name: Prepare Database
 
 on:
   push:
     branches:
       - deploy
-
-  workflow_run:
-    workflows: ["CI Tutorial"]
-    types: 
-      - completed
 
 jobs:
   "set up sample data":
@@ -21,7 +16,7 @@ jobs:
         run: npm install
 
       - name: Remove Database
-        run: npm run remove-sample-data
+        run: npm run remove-sample-data -- "mongodb://127.0.0.1:27017/my_library_db"
       
       - name: Insert Sample Data
-        run: npm run insert-sample-data
+        run: npm run insert-sample-data -- "mongodb://127.0.0.1:27017/my_library_db"
