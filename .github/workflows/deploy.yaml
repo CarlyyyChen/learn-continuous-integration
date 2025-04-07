@@ -1,0 +1,23 @@
+name: Setup Sample Data
+
+on:
+  workflow_run:
+  workflows: ["CI Tutorial"]
+  types: 
+    - completed
+
+jobs:
+  "set up sample data":
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Remove Database
+        run: npm run remove-sample-data
+      
+      - name: Insert Sample Data
+        run: npm run insert-sample-data
