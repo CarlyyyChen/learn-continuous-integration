@@ -6,9 +6,9 @@ on:
       - deploy
 
   workflow_run:
-  workflows: ["CI Tutorial"]
-  types: 
-    - completed
+    workflows: ["CI Tutorial"]
+    types: 
+      - completed
 
 jobs:
   "set up sample data":
